@@ -1,5 +1,5 @@
 name: "feat"
-description: "기능 추가 시"
+description: "기능 추가"
 labels: "feat"
 body:
   - type: textarea
@@ -16,3 +16,7 @@ body:
       placeholder: 최대한 세분화 해서 적어주세요!
     validations:
       required: true
+  - type: textarea
+    attributes:
+      label: 📎 참고 자료
+      description: 새로운 기능에 대한 참고 자료가 있다면 URL을 작성해 주세요.

@@ -1,5 +1,6 @@
 package com.me.wodada.member.domain;
 
+import com.me.wodada.member.dto.request.MemberInfoUpdateReq;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,14 +38,19 @@ public class Member {
 
     private Boolean isAgePublic = true;
 
-    private String location;
+    private String address;
 
     @Lob
     private String bio;
 
+    private String provider;
+
+    private Double rating;
+
     @Builder
     public Member(Role role, String email, String nickname, String profileImageUrl,
-                  Gender gender, int age, String ageRange, Boolean isAgePublic, String location, String bio) {
+                  Gender gender, int age, String ageRange, Boolean isAgePublic, String address, String bio,
+                  String provider, Double rating) {
         this.role = role;
         this.email = email;
         this.nickname = nickname;
@@ -53,7 +59,17 @@ public class Member {
         this.age = age;
         this.ageRange = ageRange;
         this.isAgePublic = isAgePublic;
-        this.location = location;
+        this.address = address;
         this.bio = bio;
+        this.provider = provider;
+        this.rating = rating;
+    }
+
+    public void updateProfile(MemberInfoUpdateReq request, String profileUrl) {
+        this.nickname = request.getNickname();
+        this.isAgePublic = request.getIsAgePublic();
+        this.address = request.getAddress();
+        this.bio = request.getBio();
+        this.profileImageUrl = profileUrl;
     }
 }

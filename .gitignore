@@ -206,4 +206,12 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
+#properties
+src/main/resources/application-oauth.yml
+src/main/resources/application-kye.yml
+src/main/resources/application.yml
+
+#db volume
+/db
+
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,java,gradle,windows

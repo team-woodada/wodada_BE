@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  db:
+    container_name: database
+    image: mysql
+    environment:
+      MYSQL_DATABASE: woodada
+      MYSQL_ROOT_PASSWORD: sa
+    volumes:
+      - ./db:/var/lib/mysql:rw
+    ports:
+      - "3307:3306"
+    restart: always
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    container_name: "backend"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/woodada?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: sa

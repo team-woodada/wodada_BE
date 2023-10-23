@@ -24,24 +24,21 @@ public class MemberInfoUpdateReq {
     @NotBlank
     private String gender;
 
-    @NotNull
-    private Boolean isAgePublic;
+    @NotBlank
+    private String ageRange;
 
-    @NotNull
-    private int age;
-
+    @NotBlank(message = "주소를 입력하세요")
     private String address;
 
     @Lob
     private String bio;
 
     @Builder
-    public MemberInfoUpdateReq(String nickname, String gender, Boolean isAgePublic,
-                               int age, String address, String bio) {
+    public MemberInfoUpdateReq(String nickname, String gender,
+                               String ageRange, String address, String bio) {
         this.nickname = nickname;
         this.gender = gender;
-        this.isAgePublic = isAgePublic;
-        this.age = age;
+        this.ageRange = ageRange;
         this.address = address;
         this.bio = bio;
     }

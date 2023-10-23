@@ -51,7 +51,8 @@ public class AmazonS3Service {
         return fileNameList;
     }
 
-    public void deleteFile(String fileName) {
+    public void deleteFile(String fileUrl) {
+        String fileName = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
         amazonS3Client.deleteObject(new DeleteObjectRequest(bucket, fileName));
     }
 

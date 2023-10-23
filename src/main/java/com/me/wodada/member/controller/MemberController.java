@@ -22,15 +22,16 @@ public class MemberController {
 
     @PutMapping("/memberInfo")
     public ResponseEntity<Void> updateMemberInfo(@AuthenticationPrincipal Member member,
-                                                 @RequestPart(required = false) final List<MultipartFile> images,
-                                                 @RequestPart @Valid MemberInfoUpdateReq memberInfoUpdateReq){
-        memberService.updateMemberInfo(member, memberInfoUpdateReq, images);
+                                                 @RequestPart(value="image",required = false) MultipartFile image,
+                                                 @Valid @RequestPart(value = "memberInfoUpdateReq") MemberInfoUpdateReq memberInfoUpdateReq){
+        memberService.updateMemberInfo(member, memberInfoUpdateReq, image);
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/memberInfo")
-    public ResponseEntity<MemberInfoRes> getMemberInfo(@AuthenticationPrincipal Member member){
-        MemberInfoRes response = memberService.getMemberInfo(member);
+    @GetMapping("/memberInfo/{memberId}")
+    public ResponseEntity<MemberInfoRes> getMemberInfo(@AuthenticationPrincipal Member member,
+                                                       @PathVariable Long memberId){
+        MemberInfoRes response = memberService.getMemberInfo(memberId);
         return ResponseEntity.ok().body(response);
     }
 }

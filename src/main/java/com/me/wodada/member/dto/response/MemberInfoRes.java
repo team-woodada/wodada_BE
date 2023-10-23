@@ -2,7 +2,12 @@ package com.me.wodada.member.dto.response;
 
 import com.me.wodada.member.domain.Gender;
 import com.me.wodada.member.domain.Member;
+import com.me.wodada.pet.domain.Pet;
+import com.me.wodada.pet.dto.response.PetInfoRes;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @ToString
@@ -11,35 +16,33 @@ public class MemberInfoRes {
     private String nickname;
     private String profileImageUrl;
     private Gender gender;
-    private Boolean isAgePublic;
     private String ageRange;
-    private int age;
     private String address;
     private Double rating;
 
+    private List<PetInfoRes> petInfoList = new ArrayList<>();
+
     @Builder
-    public MemberInfoRes(String nickname, String profileImageUrl,
-                         Gender gender, Boolean isAgePublic, String ageRange, int age, String address, Double rating) {
+    public MemberInfoRes(String nickname, String profileImageUrl, Gender gender,
+                         String ageRange, String address, Double rating, List<PetInfoRes> petInfoList) {
         this.nickname = nickname;
         this.profileImageUrl = profileImageUrl;
         this.gender = gender;
-        this.isAgePublic = isAgePublic;
         this.ageRange = ageRange;
-        this.age = age;
         this.address = address;
         this.rating = rating;
+        this.petInfoList = petInfoList;
     }
 
-    public static MemberInfoRes from(Member member){
+    public static MemberInfoRes from(Member member, List<PetInfoRes> petInfoList){
         return MemberInfoRes.builder()
                 .nickname(member.getNickname())
                 .profileImageUrl(member.getProfileImageUrl())
                 .gender(member.getGender())
-                .isAgePublic(member.getIsAgePublic())
                 .ageRange(member.getAgeRange())
-                .age(member.getAge())
                 .address(member.getAddress())
                 .rating(member.getRating())
+                .petInfoList(petInfoList)
                 .build();
     }
 }

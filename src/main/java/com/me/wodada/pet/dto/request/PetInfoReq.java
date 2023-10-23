@@ -16,8 +16,6 @@ public class PetInfoReq {
     @NotBlank(message = "반려동물의 이름을 입력하세요")
     private String name;
 
-    private String profileImageUrl;
-
     @NotBlank(message = "반려동물의 성별을 입력하세요")
     private String gender;
 
@@ -33,10 +31,9 @@ public class PetInfoReq {
     private String personality;
 
     @Builder
-    public PetInfoReq(String name, String profileImageUrl, String gender,
+    public PetInfoReq(String name, String gender,
                       Boolean isNeutered, Double weight, int age, String personality) {
         this.name = name;
-        this.profileImageUrl = profileImageUrl;
         this.gender = gender;
         this.isNeutered = isNeutered;
         this.weight = weight;

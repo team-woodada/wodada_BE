@@ -12,6 +12,7 @@ import javax.persistence.Lob;
 @ToString
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PetInfoRes {
+    private Long petId;
     private String name;
     private String profileImageUrl;
     private String gender;
@@ -21,8 +22,9 @@ public class PetInfoRes {
     private String personality;
 
     @Builder
-    public PetInfoRes(String name, String profileImageUrl, String gender,
+    public PetInfoRes(Long petId, String name, String profileImageUrl, String gender,
                       Boolean isNeutered, Double weight, int age, String personality) {
+        this.petId = petId;
         this.name = name;
         this.profileImageUrl = profileImageUrl;
         this.gender = gender;
@@ -34,6 +36,7 @@ public class PetInfoRes {
 
     public static PetInfoRes from (Pet pet){
         return PetInfoRes.builder()
+                .petId(pet.getId())
                 .name(pet.getName())
                 .profileImageUrl(pet.getProfileImageUrl())
                 .gender(pet.getGender().toString())

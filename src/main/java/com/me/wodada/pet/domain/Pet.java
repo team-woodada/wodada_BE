@@ -1,5 +1,6 @@
 package com.me.wodada.pet.domain;
 
+import com.me.wodada.common.BaseEntity;
 import com.me.wodada.member.domain.Gender;
 import com.me.wodada.member.domain.Member;
 import com.me.wodada.pet.dto.request.PetInfoReq;
@@ -17,7 +18,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Pet {
+public class Pet extends BaseEntity {
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "pet_id")
     private Long id;

@@ -48,6 +48,7 @@ public class SecurityConfig {
                                 .antMatchers("/h2-console/**").permitAll()
                                 .antMatchers("/test").authenticated()
                                 .antMatchers("/api/member/**").authenticated()
+                                .antMatchers("/api/post", "/api/post/edit/**", "/api/post/delete/**").hasRole("USER")
                                 .anyRequest().permitAll()
                 )
                 .logout(logout -> logout

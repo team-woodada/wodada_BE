@@ -1,5 +1,7 @@
 package com.me.wodada.member.domain;
 
+import com.me.wodada.common.BaseEntity;
+import com.me.wodada.post.domain.Post;
 import com.me.wodada.member.dto.request.MemberInfoUpdateReq;
 import com.me.wodada.pet.domain.Pet;
 import lombok.Builder;
@@ -17,7 +19,7 @@ import static lombok.AccessLevel.PROTECTED;
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -49,6 +51,9 @@ public class Member {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
     private List<Pet> petList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.REMOVE)
+    private List<Post> postList = new ArrayList<>();
 
     @Builder
     public Member(Role role, String email, String nickname, String profileImageUrl,

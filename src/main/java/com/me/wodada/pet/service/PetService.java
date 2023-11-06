@@ -1,6 +1,6 @@
 package com.me.wodada.pet.service;
 
-import com.me.wodada.image.AmazonS3Service;
+import com.me.wodada.image.service.AmazonS3Service;
 import com.me.wodada.member.domain.Member;
 import com.me.wodada.member.repository.MemberRepository;
 import com.me.wodada.pet.domain.Pet;

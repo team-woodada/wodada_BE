@@ -1,4 +1,4 @@
-package com.me.wodada.image;
+package com.me.wodada.image.service;
 
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;

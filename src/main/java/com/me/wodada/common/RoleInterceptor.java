@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
-@Component
+//@Component
 @Slf4j
 @RequiredArgsConstructor
 public class RoleInterceptor implements HandlerInterceptor {

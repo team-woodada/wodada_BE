@@ -16,9 +16,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(roleInterceptor)
-                .addPathPatterns("/api/post/**")
-                .excludePathPatterns("/api/post/get/**");
         registry.addInterceptor(permissionInterceptor)
                 .addPathPatterns("/api/post/edit/**")
                 .addPathPatterns("/api/post/delete/**");// 인터셉터 실행 O

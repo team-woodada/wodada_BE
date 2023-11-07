@@ -1,7 +1,6 @@
 package com.me.wodada.config;
 
 import com.me.wodada.common.PermissionInterceptor;
-import com.me.wodada.common.RoleInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -12,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebConfig implements WebMvcConfigurer {
 
     private final PermissionInterceptor permissionInterceptor;
-    private final RoleInterceptor roleInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {

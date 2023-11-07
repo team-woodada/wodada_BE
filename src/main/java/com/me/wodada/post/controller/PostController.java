@@ -48,11 +48,11 @@ public class PostController {
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping("/getAll/{board}")
+    @GetMapping("/getAll/{boardType}")
     public ResponseEntity<PostAllRes> getAll(@AuthenticationPrincipal Member member,
-                       @PathVariable String board,
+                       @PathVariable String boardType,
                        Pageable pageable){
-        PostAllRes response = postService.getAll(board, pageable);
+        PostAllRes response = postService.getAll(boardType, pageable);
         return ResponseEntity.ok().body(response);
     }
 

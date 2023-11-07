@@ -40,7 +40,7 @@ public class Member extends BaseEntity {
 
     private String ageRange;
 
-    private String address;
+    private String area;
 
     @Lob
     private String bio;
@@ -57,7 +57,7 @@ public class Member extends BaseEntity {
 
     @Builder
     public Member(Role role, String email, String nickname, String profileImageUrl,
-                  Gender gender,String ageRange, String address, String bio,
+                  Gender gender,String ageRange, String area, String bio,
                   String provider, Double rating) {
         this.role = role;
         this.email = email;
@@ -65,7 +65,7 @@ public class Member extends BaseEntity {
         this.profileImageUrl = profileImageUrl;
         this.gender = gender;
         this.ageRange = ageRange;
-        this.address = address;
+        this.area = area;
         this.bio = bio;
         this.provider = provider;
         this.rating = rating;
@@ -73,7 +73,7 @@ public class Member extends BaseEntity {
 
     public void updateProfile(MemberInfoUpdateReq request) {
         this.nickname = request.getNickname();
-        this.address = request.getAddress();
+        this.area = request.getArea();
         this.bio = request.getBio();
         this.role = Role.USER;
     }

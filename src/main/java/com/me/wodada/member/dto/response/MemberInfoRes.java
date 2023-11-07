@@ -15,34 +15,38 @@ import java.util.List;
 public class MemberInfoRes {
     private String nickname;
     private String profileImageUrl;
+
+    private String bio;
     private Gender gender;
     private String ageRange;
-    private String address;
+    private String area;
     private Double rating;
 
-    private List<PetInfoRes> petInfoList = new ArrayList<>();
+    private List<PetInfoRes> petList = new ArrayList<>();
 
     @Builder
-    public MemberInfoRes(String nickname, String profileImageUrl, Gender gender,
-                         String ageRange, String address, Double rating, List<PetInfoRes> petInfoList) {
+    public MemberInfoRes(String nickname, String profileImageUrl, String bio, Gender gender,
+                         String ageRange, String area, Double rating, List<PetInfoRes> petList) {
         this.nickname = nickname;
         this.profileImageUrl = profileImageUrl;
+        this.bio = bio;
         this.gender = gender;
         this.ageRange = ageRange;
-        this.address = address;
+        this.area = area;
         this.rating = rating;
-        this.petInfoList = petInfoList;
+        this.petList = petList;
     }
 
     public static MemberInfoRes from(Member member, List<PetInfoRes> petInfoList){
         return MemberInfoRes.builder()
                 .nickname(member.getNickname())
                 .profileImageUrl(member.getProfileImageUrl())
+                .bio(member.getBio())
                 .gender(member.getGender())
                 .ageRange(member.getAgeRange())
-                .address(member.getAddress())
+                .area(member.getArea())
                 .rating(member.getRating())
-                .petInfoList(petInfoList)
+                .petList(petInfoList)
                 .build();
     }
 }
